@@ -12,6 +12,7 @@ while (continuar) {
     Console.WriteLine("3 - Calcular aumento de salário");
     Console.WriteLine("4 - Calcular desconto de mercadoria");
     Console.WriteLine("5 - Calcular aluguel de carro");
+    Console.WriteLine("6 - Tabuada de 1 a 10");
     int opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -66,6 +67,21 @@ while (continuar) {
 
             AluguelCarro calculacar = new AluguelCarro(dias, kmInicial, kmFinal);
             calculacar.ExibirResultado();
+            break;
+        case 6:
+            Console.WriteLine("Tabuada Completa (1 a 10)");
+            Console.WriteLine("------------------------");
+
+            for (int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine($"\nTabuada do {i}:");
+                Console.WriteLine("-------------");
+
+                for (int j = 1; j <= 10; j++)
+                {
+                    Console.WriteLine($"{i} × {j} = {i * j}");
+                }
+            }
             break;
     }
 }
