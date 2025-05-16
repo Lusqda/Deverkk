@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using Aula01._1bil;
 using Aula01._1bim;
 using System.Runtime.InteropServices;
 
@@ -133,7 +132,7 @@ while (continuar) {
             break;
         case 10:
             Random random = new Random();
-            int numeroSecreto = random.Next(0, 101); // Gera número entre 0 e 100
+            int numeroSecreto = random.Next(0, 101);
             int tentativasRestantes = 10;
             bool acertou = false;
 
@@ -184,18 +183,12 @@ while (continuar) {
             }
             break;
         case 11:
-            void fatorial()
-            {
+                Console.WriteLine("Fatoriais de 1 até 10:");
+                Fatoriais fator = new Fatoriais();
+                for (int i = 1; i <= 10; i++)
                 {
-                    fatoriais fator = new fatoriais();
-                    Console.WriteLine("Fatoriais de 1 até 10:");
-
-                    for (int i = 1; i <= 10; i++)
-                    {
-                        int resultado = fator.CalcularFatorial(i);
-                        Console.WriteLine($"{i}! = {resultado}");
-                    }
-                }
+                    int result = fator.CalcularFatorial(i);
+                    Console.WriteLine($"{i}! = {result}");
             }
             break;
     }

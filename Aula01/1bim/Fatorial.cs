@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace Aula01._1bim
 {
-    public class fatoriais
+    public class Fatoriais
     {
         public int CalcularFatorial(int numero)
         {
-            if (numero < 0)
-                throw new ArgumentException("Número não pode ser negativo", nameof(numero));
-
             if (numero == 0 || numero == 1)
                 return 1;
 
-            checked
+            int fatorial = 1;
+            for (int i = 2; i <= numero; i++)
             {
-                return numero * CalcularFatorial(numero - 1);
+                fatorial *= i;
             }
+            return fatorial;
         }
     }
 }
