@@ -13,6 +13,7 @@ while (continuar) {
     Console.WriteLine("4 - Calcular desconto de mercadoria");
     Console.WriteLine("5 - Calcular aluguel de carro");
     Console.WriteLine("6 - Tabuada de 1 a 10");
+    Console.WriteLine("7 - Calcular imposto de renda");
     int opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -82,6 +83,18 @@ while (continuar) {
                     Console.WriteLine($"{i} × {j} = {i * j}");
                 }
             }
+            break;
+        case 7:
+            Console.Write("Informe sua renda anual bruta: R$ ");
+            double rendaAnual = double.Parse(Console.ReadLine());
+
+            CalculadoraIRPF calculadora = new CalculadoraIRPF(rendaAnual);
+            var (imposto, aliquota) = calculadora.CalcularImposto();
+
+            Console.WriteLine("\nResultado:");
+            Console.WriteLine($"Renda anual: R$ {rendaAnual:F2}");
+            Console.WriteLine($"Imposto devido: R$ {imposto:F2}");
+            Console.WriteLine($"Alíquota efetiva: {aliquota:F2}%");
             break;
     }
 }
