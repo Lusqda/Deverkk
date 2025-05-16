@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Aula01._1bil;
 using Aula01._1bim;
 using System.Runtime.InteropServices;
 
@@ -14,6 +15,8 @@ while (continuar) {
     Console.WriteLine("5 - Calcular aluguel de carro");
     Console.WriteLine("6 - Tabuada de 1 a 10");
     Console.WriteLine("7 - Calcular imposto de renda");
+    Console.WriteLine("8 - Calcular IMC");
+    Console.WriteLine("9 - Números múltiplos de 3 entre 0 e 100");
     int opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -95,6 +98,35 @@ while (continuar) {
             Console.WriteLine($"Renda anual: R$ {rendaAnual:F2}");
             Console.WriteLine($"Imposto devido: R$ {imposto:F2}");
             Console.WriteLine($"Alíquota efetiva: {aliquota:F2}%");
+            break;
+        case 8:
+            Console.Write("Digite seu peso (kg): ");
+            double peso = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite sua altura (m): ");
+            double altura = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite seu gênero (M/F): ");
+            char genero = char.Parse(Console.ReadLine().ToUpper());
+
+            Pessoa pessoa = new Pessoa(peso, altura, genero);
+            double imc = pessoa.CalcularIMC();
+            string classificacao = pessoa.ClassificarIMC();
+
+            Console.WriteLine("\nResultados:");
+            Console.WriteLine($"IMC: {imc:F2}");
+            Console.WriteLine($"Classificação: {classificacao}");
+            break;
+        case 9:
+            multiplosde3 calcularM3 = new multiplosde3();
+            List<int> resultados = calcularM3.multiplo(100);
+
+            Console.WriteLine("Múltiplos de 3 entre 0 e 100:");
+            Console.WriteLine("esses são os multiplos de 3 até 100");
+            foreach (int num in resultados)
+            {
+                Console.WriteLine(num);
+            }
             break;
     }
 }
