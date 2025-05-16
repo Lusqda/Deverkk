@@ -10,6 +10,8 @@ while (continuar) {
     Console.WriteLine("1 - Somar dois números");
     Console.WriteLine("2 - Converter metros(m) para milímetros(mm)");
     Console.WriteLine("3 - Calcular aumento de salário");
+    Console.WriteLine("4 - Calcular desconto de mercadoria");
+    Console.WriteLine("5 - Calcular aluguel de carro");
     int opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -31,6 +33,39 @@ while (continuar) {
             MetrosMilimetros converta = new MetrosMilimetros();
             int milimetros = converta.Converter(metros);
             Console.WriteLine($"{metros}m é igual a {milimetros}mm");
+            break;
+        case 3:
+            Console.Write("Digite o valor atual do salário: R$ ");
+            double salario = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o percentual de aumento (%): ");
+            double percentual = double.Parse(Console.ReadLine());
+
+            CalculaAumento calcularamt = new CalculaAumento(salario, percentual);
+            calcularamt.ExibirResultado();
+            break;
+        case 4:
+            Console.Write("Digite o valor atual da mercadoria: R$ ");
+            double valor = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite o percentual de desconto (%): ");
+            double percent = double.Parse(Console.ReadLine());
+
+            CalculaDesconto calculardes = new CalculaDesconto(valor, percent);
+            calculardes.ExibirResultado();
+            break;
+        case 5:
+            Console.Write("Digite o total de dias alugados: ");
+            int dias = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite a quilometragem inicial: ");
+            double kmInicial = double.Parse(Console.ReadLine());
+
+            Console.Write("Digite a quilometragem final: ");
+            double kmFinal = double.Parse(Console.ReadLine());
+
+            AluguelCarro calculacar = new AluguelCarro(dias, kmInicial, kmFinal);
+            calculacar.ExibirResultado();
             break;
     }
 }
