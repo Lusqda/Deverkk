@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Aula01._1bil
+namespace Aula01._1bim
 {
     public class multiplosde3
     {

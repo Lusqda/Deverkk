@@ -17,6 +17,9 @@ while (continuar) {
     Console.WriteLine("7 - Calcular imposto de renda");
     Console.WriteLine("8 - Calcular IMC");
     Console.WriteLine("9 - Números múltiplos de 3 entre 0 e 100");
+    Console.WriteLine("10 - Adivinhe o número");
+    Console.WriteLine("11 - Fatoriais de 1 a 10");
+
     int opcao = int.Parse(Console.ReadLine());
     switch (opcao)
     {
@@ -126,6 +129,73 @@ while (continuar) {
             foreach (int num in resultados)
             {
                 Console.WriteLine(num);
+            }
+            break;
+        case 10:
+            Random random = new Random();
+            int numeroSecreto = random.Next(0, 101); // Gera número entre 0 e 100
+            int tentativasRestantes = 10;
+            bool acertou = false;
+
+            Console.WriteLine("=== Jogo de Adivinhação ===");
+            Console.WriteLine("Tente adivinhar o número secreto entre 0 e 100!");
+            Console.WriteLine($"Você tem {tentativasRestantes} tentativas.\n");
+
+            while (tentativasRestantes > 0 && !acertou)
+            {
+                Console.Write($"Tentativa {11 - tentativasRestantes}/10 - Digite seu palpite: ");
+
+                if (int.TryParse(Console.ReadLine(), out int palpite))
+                {
+                    if (palpite < 0 || palpite > 100)
+                    {
+                        Console.WriteLine("Por favor, digite um número entre 0 e 100.\n");
+                        continue;
+                    }
+
+                    if (palpite == numeroSecreto)
+                    {
+                        acertou = true;
+                    }
+                    else
+                    {
+                        tentativasRestantes--;
+                        string dica = palpite < numeroSecreto ? "MAIOR" : "MENOR";
+                        Console.WriteLine($"Errou! O número secreto é {dica} que {palpite}");
+                        Console.WriteLine($"Tentativas restantes: {tentativasRestantes}\n");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida! Digite apenas números inteiros.\n");
+                }
+            }
+
+            if (acertou)
+            {
+                Console.WriteLine("\nPARABÉNS! Você acertou o número secreto!");
+                Console.WriteLine($"O número era realmente {numeroSecreto}!");
+                Console.WriteLine($"Você usou {10 - tentativasRestantes} tentativas.");
+            }
+            else
+            {
+                Console.WriteLine("\nSuas tentativas acabaram! Você perdeu.");
+                Console.WriteLine($"O número secreto era: {numeroSecreto}");
+            }
+            break;
+        case 11:
+            void fatorial()
+            {
+                {
+                    fatoriais fator = new fatoriais();
+                    Console.WriteLine("Fatoriais de 1 até 10:");
+
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        int resultado = fator.CalcularFatorial(i);
+                        Console.WriteLine($"{i}! = {resultado}");
+                    }
+                }
             }
             break;
     }
